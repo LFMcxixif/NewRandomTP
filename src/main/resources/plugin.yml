@@ -1,0 +1,7 @@
+name: NewRandomTP
+version: 1.0.0.0
+main: cn.tpcraft.minecraft.plugin.NewRandomTP
+api-version: 1.18
+commands:
+  tpr:
+    description: "插件主命令"
