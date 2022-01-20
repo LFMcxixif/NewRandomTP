@@ -21,7 +21,7 @@ Theoretical full version available
 ### Configuration File
 ```yml
 #Prefix
-Prefix: "&5[随机传送] &6> &r"
+Prefix: "&5[NewRandomTP] &6> &r"
 #Teleport Cooldown (Second)
 Cooldown: 30
 #Available World
