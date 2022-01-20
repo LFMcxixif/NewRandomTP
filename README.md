@@ -13,7 +13,7 @@ Theoretical full version available
 | /tpr info   | -                 | View Delivery Parameters  |
 | /tpr reload | newrandomtp.admin | Reload Configuration File |
 
-| Permissions          | describe               |
+| Permissions          | Describe               |
 | -------------------- | ---------------------- |
 | newrandomtp.cooldown | Skip teleport cooldown |
 | newrandomtp.admin    | Administrator          |
