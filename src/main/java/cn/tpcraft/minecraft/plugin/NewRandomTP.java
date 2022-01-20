@@ -1,5 +1,7 @@
 package cn.tpcraft.minecraft.plugin;
 
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,6 +13,8 @@ public final class NewRandomTP extends JavaPlugin {
 
     //插件
     public static Plugin Config;
+    //语言
+    public static FileConfiguration Message;
     //前缀
     public static String Prefix;
 
@@ -22,7 +26,8 @@ public final class NewRandomTP extends JavaPlugin {
         new Metrics(this, 13998);
         LoadConfig();
         LoadCommand();
-        getLogger().info("插件已加载！");
+        getLogger().info("The plugin is loaded!");
+        getLogger().info("https://github.com/LFMcxixif/NewRandomTP");
     }
 
     /*
@@ -30,23 +35,26 @@ public final class NewRandomTP extends JavaPlugin {
      */
     @Override
     public void onDisable() {
-        getLogger().info("插件已卸载！");
+        getLogger().info("The plugin is uninstalled!");
+        getLogger().info("https://github.com/LFMcxixif/NewRandomTP");
     }
 
     /*
      * 加载配置文件
      */
     public void LoadConfig() {
-        if (!getDataFolder().exists()) {
-            getDataFolder().mkdir();
-        }
-        File File = new File(getDataFolder(), "config.yml");
-        if (!(File.exists())) {
-            saveDefaultConfig();
-        }
-        reloadConfig();
+        saveDefaultConfig();
+        saveResource("message/message_CN.yml", false);
+        saveResource("message/message_EN.yml", false);
         Config = NewRandomTP.getProvidingPlugin(NewRandomTP.class);
         Prefix = translateAlternateColorCodes('&', Config.getConfig().getString("Prefix"));
+        if (Config.getConfig().getString("Language").equals("EN")) {
+            File MessageFile = new File(getDataFolder() + "/message", "message_EN.yml");
+            Message = YamlConfiguration.loadConfiguration(MessageFile);
+        } else if (Config.getConfig().getString("Language").equals("CN")) {
+            File MessageFile = new File(getDataFolder() + "/message", "message_CN.yml");
+            Message = YamlConfiguration.loadConfiguration(MessageFile);
+        }
     }
 
     /*

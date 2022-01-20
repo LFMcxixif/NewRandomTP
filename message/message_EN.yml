@@ -1,0 +1,16 @@
+#英文语言文件
+#English language file
+
+UnavailableWorld: "The current world is unavailable"
+Cooldown: "Cooldown &6{Second}&r second"
+CoolingTips: "You have &6{Cooldown}&r seconds left to use random teleportation"
+Teleport: "Randomly teleport to X:&6{X}&r, Y:&6{Y}&r, Z:&6{Z}&r"
+AvailableWorld: "Available world &6{World}"
+MinTeleportRangeX: "Minimum teleport range X &6{X}"
+MinTeleportRangeZ: "Minimum teleport range Z &6{Z}"
+MaxTeleportRangeX: "Maximum teleport range X &6{X}"
+MaxTeleportRangeZ: "Maximum teleport range Z &6{Z}"
+ReloadConfig: "Configuration file reloaded successfully"
+ConsoleUnavailable: "Console not available"
+NoPermission: "Insufficient permissions"
+ParameterError: "Parameter error"
