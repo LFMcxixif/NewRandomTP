@@ -20,6 +20,12 @@ Theoretical full version available
 
 ### Configuration File
 ```yml
+#语言
+#Language
+#English: EN
+#Chinese: CN
+Language: "EN"
+
 #前缀
 #Prefix
 Prefix: "&5[NewRandomTP] &6> &r"
