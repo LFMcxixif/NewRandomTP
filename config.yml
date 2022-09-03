@@ -1,28 +1,23 @@
-#语言
 #Language
-#English: EN
-#Chinese: CN
-Language: "EN"
+#English: en-US, Simplified Chinese: zh-CN, Traditional Chinese: zh-TW
+Language: "en-US"
 
-#前缀
-#Prefix
-Prefix: "&5[NewRandomTP] &6> &r"
+# Teleport Delay (Second)
+Delay: 3
 
-#传送冷却（秒）
-#Teleport Cooldown (Second)
+# Teleport Cooldown (Second)
 Cooldown: 30
 
-#可用世界
-#Available World
+# Available World
 World:
   - "world"
+  - "world_nether"
+  - "world_the_end"
 
-#最小传送范围
-#Minimum Teleport Range
+# Minimum Teleport Range
 MinTeleportX: 250
 MinTeleportZ: 250
 
-#最大传送范围
-#Maximum Teleport Range
+# Maximum Teleport Range
 MaxTeleportX: 500
 MaxTeleportZ: 500

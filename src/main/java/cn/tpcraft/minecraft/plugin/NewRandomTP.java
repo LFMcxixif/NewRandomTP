@@ -1,5 +1,6 @@
 package cn.tpcraft.minecraft.plugin;
 
+import cn.tpcraft.minecraft.plugin.Lib.Metrics;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -7,60 +8,50 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-import static net.md_5.bungee.api.ChatColor.translateAlternateColorCodes;
-
 public final class NewRandomTP extends JavaPlugin {
 
-    //插件
-    public static Plugin Config;
-    //语言
+    /* 插件变量 */
+    public static Plugin Plugin;
+    public static String Prefix = "&7&l[&6&lNRTP&7&l] &c&l>> &r";
     public static FileConfiguration Message;
-    //前缀
-    public static String Prefix;
 
-    /*
-     * 插件加载事件
-     */
+    /* Plugin loading */
     @Override
     public void onEnable() {
         new Metrics(this, 13998);
         LoadConfig();
         LoadCommand();
-        getLogger().info("The plugin is loaded!");
+        getLogger().info("========================================");
+        getLogger().info("The plugin has been loaded successfully!");
+        getLogger().info("Plugin source code:");
         getLogger().info("https://github.com/LFMcxixif/NewRandomTP");
+        getLogger().info("========================================");
     }
 
-    /*
-     * 插件卸载事件
-     */
+    /* Plugin uninstall */
     @Override
     public void onDisable() {
-        getLogger().info("The plugin is uninstalled!");
-        getLogger().info("https://github.com/LFMcxixif/NewRandomTP");
+        getLogger().info("========================================");
+        getLogger().info("The plugin has been successfully uninstalled!");
+        getLogger().info("========================================");
     }
 
-    /*
-     * 加载配置文件
-     */
-    public void LoadConfig() {
+    /* Load configuration file */
+    private void LoadConfig() {
         saveDefaultConfig();
-        saveResource("message/message_CN.yml", false);
-        saveResource("message/message_EN.yml", false);
-        Config = NewRandomTP.getProvidingPlugin(NewRandomTP.class);
-        Prefix = translateAlternateColorCodes('&', Config.getConfig().getString("Prefix"));
-        if (Config.getConfig().getString("Language").equals("EN")) {
-            File MessageFile = new File(getDataFolder() + "/message", "message_EN.yml");
-            Message = YamlConfiguration.loadConfiguration(MessageFile);
-        } else if (Config.getConfig().getString("Language").equals("CN")) {
-            File MessageFile = new File(getDataFolder() + "/message", "message_CN.yml");
-            Message = YamlConfiguration.loadConfiguration(MessageFile);
-        }
+        saveResource("message/message_zh-CN.yml", false);
+        saveResource("message/message_zh-TW.yml", false);
+        saveResource("message/message_en-US.yml", false);
+
+        Plugin = NewRandomTP.getProvidingPlugin(NewRandomTP.class);
+
+        String Language = Plugin.getConfig().getString("Language");
+        File MessageFile = new File(getDataFolder() + "/message", "message_" + Language + ".yml");
+        Message = YamlConfiguration.loadConfiguration(MessageFile);
     }
 
-    /*
-     * 加载命令
-     */
-    public void LoadCommand() {
-        getCommand("tpr").setExecutor(new Connamd());
+    /* Load command */
+    private void LoadCommand() {
+        getCommand("nrtp").setExecutor(new MainCommand());
     }
 }
