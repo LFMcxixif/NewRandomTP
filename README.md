@@ -1,4 +1,4 @@
-[简体中文（Simplified Chinese）](https://github.com/LFMcxixif/NewRandomTP/blob/master/README_CN.md)
+[简体中文（Simplified Chinese）](https://github.com/LFMcxixif/NewRandomTP/blob/master/README_zh-CN.md)
 
 # NewRandomTP
 Minecraft random teleport plugin
